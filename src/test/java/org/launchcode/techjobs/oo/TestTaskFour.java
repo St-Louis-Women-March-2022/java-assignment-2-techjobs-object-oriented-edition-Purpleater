@@ -38,10 +38,10 @@ public class TestTaskFour extends AbstractTest {
         JobTest jobTest = (JobTest) jobTestClass.getConstructor().newInstance();
         Method testSettingJobIdMethod = jobTestClass.getMethod("testSettingJobId");
 
-
         new Expectations() {{
             new Job(); minTimes = 2; maxTimes = 2;
         }};
+
 
         try {
             testSettingJobIdMethod.invoke(jobTest);

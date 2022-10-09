@@ -13,15 +13,14 @@ public class PositionType {
         nextId++;
     }
 
+    // TODO: Add a custom toString() method that returns the data stored in 'value'.
+    public String toString(){
+        return value;
+    }
+
     public PositionType(String value) {
         this();
         this.value = value;
-    }
-
-    // TODO: Add a custom toString() method that returns the data stored in 'value'.
-
-    public String stringinator(String value){
-        return value.toString();
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when

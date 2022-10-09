@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Job {
@@ -17,20 +18,60 @@ public class Job {
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
 
-
-    public Job(int id) {
-        this.id = id + nextId;
+    public Job(){
+        id = nextId;
+        nextId++;
     }
 
-    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency, int id){
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency){
+        this();
         this.name = name;
         this.employer = employer;
         this.location = location;
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
-        this.id = 0;
 
     }
+
+    public String isEmpty(String value){
+        if (value.isEmpty()){
+            return "Data not found";
+        }
+        else{
+            return value;
+        }
+    }
+
+    public String toString(int id, String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency){
+
+        if (name == "" || name == null){
+            name = "Data not found";
+        }
+        if (employer.getValue().equals("") || employer.getValue() == null){
+            employer.setValue("Data not found");
+        }
+        if (location.getValue().equals("") || location.getValue() == null){
+            location.setValue("Data not found");
+        }
+        if (positionType.getValue().equals("") || positionType.getValue() == null){
+            positionType.setValue("Data not found");
+        }
+        if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
+            coreCompetency.setValue("Data not found");
+        }
+
+        return "\n" +
+                "\nID: " + id +
+                "\nName: " + name +
+                "\nEmployer: " + employer +
+                "\nLocation: " + location +
+                "\nPosition Type: " + positionType +
+                "\nCore Competency: " + coreCompetency +
+                "\n";
+    }
+
+
+
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
@@ -87,6 +128,9 @@ public class Job {
         this.positionType = positionType;
     }
 
+    public void setCoreCompetency(CoreCompetency coreCompetency) {
+        this.coreCompetency = coreCompetency;
+    }
 }
 
 
