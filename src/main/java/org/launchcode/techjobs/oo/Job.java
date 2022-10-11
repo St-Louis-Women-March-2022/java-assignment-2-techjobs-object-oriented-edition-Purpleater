@@ -33,34 +33,25 @@ public class Job {
 
     }
 
-    public String isEmpty(String value){
-        if (value.isEmpty()){
-            return "Data not found";
-        }
-        else{
-            return value;
-        }
-    }
-
-    public String toString(int id, String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency){
+    @Override
+    public String toString() {
 
         if (name == "" || name == null){
             name = "Data not found";
         }
         if (employer.getValue().equals("") || employer.getValue() == null){
-            employer.setValue("Data not found");
+            employer.setValue("Data not available");
         }
         if (location.getValue().equals("") || location.getValue() == null){
-            location.setValue("Data not found");
+            location.setValue("Data not available");
         }
         if (positionType.getValue().equals("") || positionType.getValue() == null){
-            positionType.setValue("Data not found");
+            positionType.setValue("Data not available");
         }
         if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null){
-            coreCompetency.setValue("Data not found");
+            coreCompetency.setValue("Data not available");
         }
-
-        return "\n" +
+        return
                 "\nID: " + id +
                 "\nName: " + name +
                 "\nEmployer: " + employer +
@@ -72,9 +63,12 @@ public class Job {
 
 
 
+
+
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
+    /*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,7 +81,7 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
-
+    */
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.

@@ -1,2 +1,55 @@
-package org.launchcode.techjobs.oo;public class JobField {
+package org.launchcode.techjobs.oo;
+
+import java.util.Objects;
+
+abstract public class JobField {
+
+    //fields
+    private int id;
+    private String value;
+    private static int nextId = 1;
+
+    // constructors
+
+    public JobField(){
+        id = nextId;
+        nextId++;
+    }
+
+    public JobField(String value){
+        this();
+        this.value = value;
+    }
+
+    // methods
+
+    public String toString() {
+        return value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JobField jobField = (JobField) o;
+        return id == jobField.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    // setters and getters
+    public int getId() {
+        return id;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 }
